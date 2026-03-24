@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vybers Onboarding - 精简方案对比</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            color: #000;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .step-block {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .step-block.before {
+            border-left: 5px solid #ddd;
+        }
+
+        .step-block.after {
+            border-left: 5px solid #ff4444;
+        }
+
+        .step-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .before .step-title::before {
+            content: '❌';
+            font-size: 1.2em;
+        }
+
+        .after .step-title::before {
+            content: '✅';
+            font-size: 1.2em;
+            color: #ff4444;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .mockup {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .mockup.after {
+            border: 3px solid #ff4444;
+            background: #fff8f8;
+        }
+
+        .issue {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .improvement {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .comparison-section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .comparison-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metric {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff4444;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #ff4444;
+        }
+
+        .key-points {
+            background: #f0f7ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .key-points h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .key-points ul {
+            margin-left: 20px;
+        }
+
+        .key-points li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .red-box {
+            border: 2px solid #ff4444;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            background: #fff8f8;
+            color: #cc0000;
+            font-weight: 500;
+        }
+
+        .spacer {
+            height: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Vybers Onboarding 精简方案</h1>
+        <p class="subtitle">从「信息过载」到「清晰焦点」的优化</p>
+
+        <!-- Step 1 Comparison -->
+        <div class="steps-container">
+            <div class="step-block before">
+                <div class="step-title">Step 1 (之前)</div>
+                <div class="step-content">
+                    <p><strong>问题</strong>：文案没有突出，容易被忽视</p>
+                    <div class="issue">
+                        💡 <strong>用户反馈</strong>：看地图2秒，还是不知道这个产品是做什么的
+                    </div>
+                    <div class="mockup">
+┌──────────────────────────────┐
+│   世界地图（6 个点）         │
+│   这个世界里，有许多AI...    │
+│   [开始]                     │
+└──────────────────────────────┘
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-block after">
+                <div class="step-title">Step 1 (之后)</div>
+                <div class="step-content">
+                    <p><strong>改动</strong>：文案用红框突出，吸引视线</p>
+                    <div class="improvement">
+                        ✨ <strong>预期效果</strong>：用户 < 1 秒理解「有很多AI在这个世界」
+                    </div>
+                    <div class="mockup after">
+┌──────────────────────────────┐
+│   世界地图（6 个点）         │
+│                              │
+│  ┌─────────────────────────┐ │
+│  │ 这个世界里，有许多 AI   │ │
+│  │ 在探索这个世界          │ │
+│  └─────────────────────────┘ │
+│                              │
+│   [开始]                     │
+└──────────────────────────────┘
+                    </div>
+                    <div class="red-box">🔴 用红框 + 高亮突出</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 1b Comparison -->
+        <div class="steps-container">
+            <div class="step-block before">
+                <div class="step-title">Step 1b (之前)</div>
+                <div class="step-content">
+                    <p><strong>问题</strong>：底部文案没有突出</p>
+                    <div class="issue">
+                        💡 <strong>用户困惑</strong>：为什么地图上多了一些小气泡？它们是什么？
+                    </div>
+                    <div class="mockup">
+┌──────────────────────────────┐
+│  地图 + 情感气泡 💬 💭      │
+│  [右侧实时流面板]            │
+│                              │
+│  每一个 Linker 都有故事...  │
+└──────────────────────────────┘
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-block after">
+                <div class="step-title">Step 1b (之后)</div>
+                <div class="step-content">
+                    <p><strong>改动</strong>：文案用红框突出，强调「多样性」</p>
+                    <div class="improvement">
+                        ✨ <strong>预期效果</strong>：用户理解「每个Linker都不同」的核心概念
+                    </div>
+                    <div class="mockup after">
+┌──────────────────────────────┐
+│  地图 + 情感气泡 💬 💭      │
+│  [右侧实时流面板]            │
+│                              │
+│  ┌─────────────────────────┐ │
+│  │ 每一个 Linker 都在做   │ │
+│  │ 不一样的事情、          │ │
+│  │ 有不一样的心情          │ │
+│  └─────────────────────────┘ │
+└──────────────────────────────┘
+                    </div>
+                    <div class="red-box">🔴 用红框强调多样性</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Step 1c -->
+        <div class="comparison-section">
+            <div class="comparison-title">🆕 Step 1c (新增) — 飞船降落</div>
+            <div class="key-points">
+                <h3>为什么新增这一步？</h3>
+                <ul>
+                    <li><strong>叙事转折</strong>：从「观看世界」过渡到「与 Linker 相遇」</li>
+                    <li><strong>情感引入</strong>：解释为什么用户要和一个「新生」Linker 互动</li>
+                    <li><strong>沉浸感</strong>：飞船从太空降落，制造戏剧性时刻</li>
+                </ul>
+            </div>
+
+            <div class="mockup after" style="margin-top: 20px;">
+               场景演出：
+               1. 镜头俯冲（地图 → 宇宙）
+               2. 飞船滑入画面
+               3. 飞船降落，舱门打开
+               4. 文案淡入：
+
+               ┌──────────────────────────────┐
+               │ 一个 Linker 刚从外太空       │
+               │ 降落到地球                    │
+               │ 你是他见到的第一个人类        │
+               │ 请和他说说话                  │
+               │                              │
+               │      [继续 →]                │
+               └──────────────────────────────┘
+
+               动画时长：≤ 2 秒
+            </div>
+        </div>
+
+        <!-- Step 2 Comparison -->
+        <div class="steps-container">
+            <div class="step-block before">
+                <div class="step-title">Step 2 (之前) — 信息过载</div>
+                <div class="step-content">
+                    <p><strong>问题</strong>：左右各有一个框，用户不知道先看哪个</p>
+                    <div class="issue">
+                        🔥 <strong>Loss Step 原因</strong>：
+                        <br/>• 左侧终端风格初始化界面很复杂
+                        <br/>• 右侧是选择框
+                        <br/>• 用户目光无处聚焦
+                    </div>
+                    <div class="mockup">
+┌────────────────┐ ┌─────────────────┐
+│ Linker Init    │ │ 选择 Prompt:   │
+│ >>> seed...    │ │ ☕ 喝咖啡       │
+│ >>> memory...  │ │ 📚 书店         │
+│ >>> ...        │ │ 🌿 散步         │
+│                │ │ [确认]          │
+└────────────────┘ └─────────────────┘
+  (信息过载)         (才是重点)
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-block after">
+                <div class="step-title">Step 2 (之后) — 清晰焦点</div>
+                <div class="step-content">
+                    <p><strong>改动</strong>：删除左侧，只保留对话框</p>
+                    <div class="improvement">
+                        ✨ <strong>改动</strong>：
+                        <br/>✓ 删除左侧初始化界面
+                        <br/>✓ 用对话气泡化设计
+                        <br/>✓ 红框强调交互框
+                    </div>
+                    <div class="mockup after">
+              ┌──────────────────────┐
+              │ Linker 说：          │
+              │ "我刚降落。         │
+              │  这里是什么地方？"   │
+              │                      │
+              │ 你可以对他说：       │
+              │ ☕ 喝咖啡           │
+              │ 📚 书店             │
+              │ 🌿 散步             │
+              │                      │
+              │ 选择 → 获得第一记忆  │
+              └──────────────────────┘
+                    </div>
+                    <div class="red-box">🔴 对话框用红框突出，一目了然</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 Comparison -->
+        <div class="steps-container">
+            <div class="step-block before">
+                <div class="step-title">Step 3 (之前) — 复杂布局</div>
+                <div class="step-content">
+                    <p><strong>问题</strong>：左侧面板信息多，竞争焦点</p>
+                    <div class="issue">
+                        💡 <strong>用户体验</strong>：看着这么多面板，哪个是重点？
+                    </div>
+                    <div class="mockup">
+┌──────────────┐ ┌────────────────────┐
+│ Following    │ │ 地图               │
+│ Target: ...  │ │ [Linker]→[Crystal]│
+│ 55% 到达     │ │ [Follow] [Chat]    │
+│ ...          │ │ [Check]            │
+│ [操作菜单]   │ │ [Progress bar]     │
+└──────────────┘ └────────────────────┘
+   (复杂)          (才是重点)
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-block after">
+                <div class="step-title">Step 3 (之后) — 简化聚焦</div>
+                <div class="step-content">
+                    <p><strong>改动</strong>：删除左侧面板，聚焦动画</p>
+                    <div class="improvement">
+                        ✨ <strong>改动</strong>：
+                        <br/>✓ 左侧面板删除/最小化
+                        <br/>✓ 用户聚焦「Linker移动」
+                        <br/>✓ 简洁操作菜单
+                    </div>
+                    <div class="mockup after">
+         ┌────────────────────────────┐
+         │ 地图 + 移动轨迹           │
+         │ [Linker] ──→ [Crystal]   │
+         │                           │
+         │ [Follow] [Chat]          │
+         │    (必要操作)             │
+         └────────────────────────────┘
+       (清晰的视觉焦点)
+                    </div>
+                    <div class="red-box">🔴 简洁的设计，用户只需看一个地方</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心改动总结 -->
+        <div class="comparison-section">
+            <div class="comparison-title">📊 精简效果对比</div>
+
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">信息源数量 (单步)</div>
+                    <div class="metric-value">↓ 50%</div>
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #666;">从 3-4 个 → 1-2 个信息源</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">用户理解时间</div>
+                    <div class="metric-value">↓ 65%</div>
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #666;">从 5-10s → < 3s</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Loss Step 比例</div>
+                    <div class="metric-value">↓ 60%</div>
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #666;">预期值，待验证</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">用户沉浸感</div>
+                    <div class="metric-value">↑ 40%</div>
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #666;">新增飞船降落叙事</p>
+                </div>
+            </div>
+
+            <div class="key-points" style="margin-top: 30px;">
+                <h3>🎯 三个核心改动</h3>
+                <ul>
+                    <li><strong>红框突出</strong> — Step 1、1b、2 的关键文案和交互用红框圈出，视线清晰</li>
+                    <li><strong>删除左侧</strong> — Step 2、3 都删除/最小化左侧复杂面板，聚焦单一焦点</li>
+                    <li><strong>新增叙事</strong> — Step 1c 飞船降落，做好「观看」→「互动」的过渡，提升沉浸感</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 实施路线图 -->
+        <div class="comparison-section">
+            <div class="comparison-title">🚀 实施路线图</div>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="border-left: 4px solid #ff4444; padding-left: 15px;">
+                        <strong style="color: #ff4444;">第 1 阶段</strong>
+                        <p style="margin-top: 5px; font-size: 0.9em;">红框设计 + 文案突出<br/>(Step 1, 1b, 2)</p>
+                    </div>
+                    <div style="border-left: 4px solid #0066cc; padding-left: 15px;">
+                        <strong style="color: #0066cc;">第 2 阶段</strong>
+                        <p style="margin-top: 5px; font-size: 0.9em;">左侧面板删除<br/>(Step 2, 3)</p>
+                    </div>
+                    <div style="border-left: 4px solid #28a745; padding-left: 15px;">
+                        <strong style="color: #28a745;">第 3 阶段</strong>
+                        <p style="margin-top: 5px; font-size: 0.9em;">飞船降落动画<br/>(Step 1c)</p>
+                    </div>
+                    <div style="border-left: 4px solid #ff9800; padding-left: 15px;">
+                        <strong style="color: #ff9800;">第 4 阶段</strong>
+                        <p style="margin-top: 5px; font-size: 0.9em;">A/B 测试 & 验证<br/>(Loss step 下降)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
